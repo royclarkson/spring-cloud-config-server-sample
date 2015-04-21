@@ -2,14 +2,17 @@ server:
   port: 8888
 
 spring:
+  # profiles:
+    # active: subversion
   cloud:
     config:
       server:
-        svn:
-          uri: https://github.com/royclarkson/svn-config-server
         git:
-          uri: https://github.com/pcf-guides/configuration-server-config-repo
+          uri: https://github.com/pcf-guides/configuration-server-config-repo.git
+        svn:
+          uri: https://subversion.assembla.com/svn/spring-cloud-external-configuration/
 
 logging:
   levels:
     org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.cloud.config.server: DEBUG
